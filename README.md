@@ -5,3 +5,4 @@ Steps:
 1. Deface the BIDS compliant data using pydeface.
 2. Run quality checks on data using MRIQC.
 3. Preprocessing data using fMRIprep.
+   This can be submit to slurm manually, or you can loop through multiple participants using the looping script to submit to slurm.
