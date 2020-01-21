@@ -14,6 +14,6 @@ Steps:
    
    The mriqc_slurm.sh script can submit this job to the slurm. Be sure to change the directory paths before running. There are three options you can use in this script: participant level only, participant level plus group level, and group level only.
    
-4. Preprocessing data using fMRIprep: fmriprep_slurm.sh
+4. Preprocessing data using fMRIprep: fmriprep_looping_script.sh, fmriprep_slurm.sh
    
    The fmriprep_slurm.sh can be used to submit to slurm manually, or you can loop through multiple participants using fmriprep_looping_script.sh to submit each individual participant to slurm. Be sure to change the directory paths before running. If using the looping script, you do not need to change the paths on the slurm script.
