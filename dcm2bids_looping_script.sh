@@ -6,8 +6,8 @@
 #SBATCH --mail-user=XXXXemailhere
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
-#SBATCH --mem=20gb
-#SBATCH --time=20:00:00
+#SBATCH --mem=5gb
+#SBATCH --time=5:00:00
 #SBATCH --output=dcm2bids_%j.out
 #pwd; hostname; date
 
