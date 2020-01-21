@@ -15,9 +15,8 @@ module load singularity
 
 singularity_dir=/full_directory_path/singularity_location_folder
 BIDS_dir=/full_directory_path/BIDS_data_folder
-BIDS_folder=data_example_folder
-MRIQC_dir=/full_directory_path/MRIQC_folder
-output_folder=MRIQC_output_folder
+MRIQC_output_dir=/full_directory_path/MRIQC_folder
+MRIQC_version=mriqc_0.15.0.img
 #fd_thres= #set this to voxel size
 
  
@@ -26,7 +25,7 @@ for SUB in	1 2 3
 do
 
 # running dataset for single participants
-singularity run --cleanenv $mydirpath/MRIQC/mriqc_0.15.0.img $BIDS_dir/$BIDS_folder $MRIQC_dir/$output_folder participant --participant-label $SUB --hmc-fsl --fd_thres 3 --work-dir $MRIQC_dir/$output_folder --float32 
+singularity run --cleanenv $singularity_dir/$MRIQC_version $BIDS_dir $MRIQC_output_dir participant --participant-label $SUB --hmc-fsl --fd_thres 3 --work-dir $MRIQC_output_dir --float32 #--n_proc 4
 
 done
 
@@ -34,10 +33,7 @@ done
 # RUNNING WHOLE DATASET
 
 # running whole dataset for single and group. change memory requested -- 10gb is barely enough
-#singularity run --cleanenv $mydirpath/MRIQC/mriqc_0.15.0.img $BIDS_dir/$BIDS_folder $MRIQC_dir/$output_folder participant --hmc-fsl --fd_thres 3 --work-dir $MRIQC_dir/$output_folder --float32 
+#singularity run --cleanenv $singularity_dir/$MRIQC_version $BIDS_dir $MRIQC_output_dir participant --hmc-fsl --fd_thres 3 --work-dir $MRIQC_output_dir --float32 #--n_proc 4
 
 # running for just group level. Change memory requested -- 5gb seems to be more than enough
-#singularity run --cleanenv $mydirpath/MRIQC/mriqc_0.15.0.img $BIDS_dir/$BIDS_folder $MRIQC_dir/$output_folder group --hmc-fsl --fd_thres 3 --work-dir $MRIQC_dir/$output_folder --float32 
-
-
-
+#singularity run --cleanenv $singularity_dir/$MRIQC_version $BIDS_dir $MRIQC_output_dir group --hmc-fsl --fd_thres 3 --work-dir $MRIQC_output_dir --float32 # --n_proc 4
